@@ -20,3 +20,5 @@ All Source code is in `main.go` in the demo directory
 - [Go By Example](https://gobyexample.com/)
 - [Effective Go](https://golang.org/doc/effective_go.html)
 - [Godoc](https://godoc.org/) - Go has tooling to create documentation using comments
+- [List of Go articles](https://github.com/golang/go/wiki/Articles)
+- [Goa](https://goa.design/) - Alternative choice to Gin. Looks promising, could be a good alternative.
