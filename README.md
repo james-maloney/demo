@@ -9,7 +9,7 @@ A simple app that demonstrates the basics of [Gin](https://github.con/gin-gonic/
 - Clone demo repo `git clone https://github.com/james-maloney/demo`
 - cd to $GOPATH/github.com/james-maloney/demo
 - install and run `go build && ./demo`
-- visit [localhost:8000](localhost:8000)
+- visit [localhost:8000](http://localhost:8000)
 
 All Source code is in `main.go` in the demo directory
 
