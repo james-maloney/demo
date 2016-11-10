@@ -19,4 +19,4 @@ All Source code is in `main.go` in the demo directory
 - [Go Tour](https://tour.golang.org/welcome/1)
 - [Go By Example](https://gobyexample.com/)
 - [Effective Go](https://golang.org/doc/effective_go.html)
-- [Godoc][https://godoc.org/] - Go has tooling to create documentation using comments
+- [Godoc](https://godoc.org/) - Go has tooling to create documentation using comments
