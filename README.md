@@ -1,6 +1,6 @@
 # Example JSON API using Go and Gin
 
-A simple app that demonstrates the basics of [Gin](https://github.con/gin-gonic/gin)
+A simple app that demonstrates the basics of [Gin](https://github.com/gin-gonic/gin)
 
 ### Setup
 
