@@ -32,7 +32,7 @@ type User struct {
 	Username string `json:"username"`
 }
 
-// GetUsers assumes that there is a database table named users where an id and username column
+// GetUsers assumes that there is a database table named users with an id and username column
 func GetUsers(ctx *gin.Context) {
 	if !db.RW.IsConnected() {
 		ctx.JSON(500, map[string]string{
