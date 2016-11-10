@@ -67,7 +67,7 @@ func Hello(ctx *gin.Context) {
 	ctx.JSON(200, res)
 }
 
-// init get called before main. All go packages can have an init or multiple init functions.
+// init gets called before main. All Go packages can have an init or multiple init functions.
 func init() {
 	templates.AddView("home", `
 <!DOCTYPE>
