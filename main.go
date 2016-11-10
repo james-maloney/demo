@@ -7,18 +7,62 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/james-maloney/templates"
+
+	"github.com/james-maloney/demo/pkg/db"
 )
 
 func main() {
+	// uncomment and add username, password, and db name to connect to a mysql database
+	//db.Init("", "", "")
+
 	e := gin.New()
 
 	e.GET("/", Home)
 	e.GET("/hello", Hello)
 	e.GET("/hello/:name", Hello)
+	e.GET("/users", GetUsers)
 
 	if err := e.Run(":8000"); err != nil {
 		log.Fatal(err)
 	}
+}
+
+type User struct {
+	ID       int64  `json:"id"`
+	Username string `json:"username"`
+}
+
+// GetUsers assumes that there is a database table named users where an id and username column
+func GetUsers(ctx *gin.Context) {
+	if !db.RW.IsConnected() {
+		ctx.JSON(500, map[string]string{
+			"error": "DB is not connected",
+		})
+		return
+	}
+
+	rows, err := db.RW.Query("select id, username from users order by username")
+	if err != nil {
+		ctx.JSON(500, map[string]string{
+			"error": err.Error(),
+		})
+		return
+	}
+	defer rows.Close()
+
+	usrs := []*User{}
+	for rows.Next() {
+		u := &User{}
+		if err := rows.Scan(
+			&u.ID,
+			&u.Username,
+		); err != nil {
+			continue
+		}
+		usrs = append(usrs, u)
+	}
+
+	ctx.JSON(200, usrs)
 }
 
 func Home(ctx *gin.Context) {
